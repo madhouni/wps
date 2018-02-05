@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="wps" nsURI="http://fr.ubo.mde.massi/wps" nsPrefix="wps">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="ServeurWps">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details value="lien.startsWith('http://')"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lien" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//ElementNomme">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sorties" lowerBound="1"
+        upperBound="-1" eType="#//Sortie" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="serveur" lowerBound="1"
+        eType="#//ServeurWps"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entrees" lowerBound="1"
+        upperBound="-1" eType="#//DescriptionEntree" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Literal" eSuperTypes="#//DescriptionEntree"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DescriptionEntree" eSuperTypes="#//ElementNomme"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Geometrie" eSuperTypes="#//DescriptionEntree"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Raster" eSuperTypes="#//DescriptionEntree"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sortie" eSuperTypes="#//ElementNomme"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DescriptionEntier" eSuperTypes="#//Literal">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="minInfMax estUnPas"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Verification du pas"/>
+      </eAnnotations>
+      <details key="minInfMax" value="minimum &lt; maximum"/>
+      <details key="estUnPas" value="pas = 1"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimum" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximum" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="100"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pas" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parDefaut" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="50"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementNomme">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypeSaisie">
+    <eLiterals name="parDefaut"/>
+    <eLiterals name="fixe" value="1"/>
+    <eLiterals name="libre"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConfigurationWps">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="appelProcess" upperBound="-1"
+        eType="#//Process" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="process" lowerBound="1"
+        upperBound="-1" eType="#//ServeurWps" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AppelProcess" eSuperTypes="#//ElementNomme">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="process" lowerBound="1"
+        eType="#//Process"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entrees" upperBound="-1"
+        eType="#//Entree" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Entier" eSuperTypes="#//Entree">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valeur" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="description" lowerBound="1"
+        eType="#//DescriptionEntier"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Entree" eSuperTypes="#//ElementNomme">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="saisie" lowerBound="1"
+        eType="#//TypeSaisie"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//Entree">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lienReference" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

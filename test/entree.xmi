@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ASCII"?>
+<wps:ConfigurationWps xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wps="http://fr.ubo.mde.massi/wps" xsi:schemaLocation="http://fr.ubo.mde.massi/wps ../model/wps.ecore">
+  <appelProcess/>
+  <process/>
+</wps:ConfigurationWps>

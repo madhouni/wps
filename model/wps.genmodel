@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/wps/src" modelPluginID="wps" modelName="Wps" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>wps.ecore</foreignModel>
+  <genPackages prefix="Wps" disposableProviderFactory="true" ecorePackage="wps.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="wps.ecore#//TypeSaisie">
+      <genEnumLiterals ecoreEnumLiteral="wps.ecore#//TypeSaisie/parDefaut"/>
+      <genEnumLiterals ecoreEnumLiteral="wps.ecore#//TypeSaisie/fixe"/>
+      <genEnumLiterals ecoreEnumLiteral="wps.ecore#//TypeSaisie/libre"/>
+    </genEnums>
+    <genClasses ecoreClass="wps.ecore#//ServeurWps">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute wps.ecore#//ServeurWps/lien"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference wps.ecore#//ConfigurationWps/process"/>
+    </genClasses>
+    <genClasses ecoreClass="wps.ecore#//Process">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference wps.ecore#//Process/sorties"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference wps.ecore#//Process/serveur"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute wps.ecore#//Process/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference wps.ecore#//Process/entrees"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute wps.ecore#//ElementNomme/nom"/>
+    </genClasses>
+    <genClasses ecoreClass="wps.ecore#//Literal"/>
+    <genClasses image="false" ecoreClass="wps.ecore#//DescriptionEntree">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute wps.ecore#//Entree/saisie"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="wps.ecore#//Geometrie"/>
+    <genClasses image="false" ecoreClass="wps.ecore#//Raster"/>
+    <genClasses ecoreClass="wps.ecore#//Sortie"/>
+    <genClasses ecoreClass="wps.ecore#//DescriptionEntier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute wps.ecore#//DescriptionEntier/minimum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute wps.ecore#//DescriptionEntier/maximum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute wps.ecore#//DescriptionEntier/pas"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute wps.ecore#//DescriptionEntier/parDefaut"/>
+    </genClasses>
+    <genClasses ecoreClass="wps.ecore#//ElementNomme">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute wps.ecore#//ElementNomme/nom"/>
+    </genClasses>
+    <genClasses ecoreClass="wps.ecore#//ConfigurationWps">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference wps.ecore#//ConfigurationWps/appelProcess"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference wps.ecore#//ConfigurationWps/process"/>
+    </genClasses>
+    <genClasses ecoreClass="wps.ecore#//AppelProcess">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference wps.ecore#//AppelProcess/process"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference wps.ecore#//AppelProcess/entrees"/>
+    </genClasses>
+    <genClasses ecoreClass="wps.ecore#//Entier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute wps.ecore#//Entier/valeur"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference wps.ecore#//Entier/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute wps.ecore#//Entree/saisie"/>
+    </genClasses>
+    <genClasses ecoreClass="wps.ecore#//Entree">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute wps.ecore#//Entree/saisie"/>
+    </genClasses>
+    <genClasses ecoreClass="wps.ecore#//Reference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute wps.ecore#//Reference/lienReference"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
